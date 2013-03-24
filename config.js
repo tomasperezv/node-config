@@ -6,6 +6,18 @@
 var fs = require('fs');
 
 /**
+ * @type {String} CONFIGURATION_FOLDER
+ */
+
+this.CONFIGURATION_FOLDER = './config/';
+
+/**
+ * @type {Array} categories
+ */
+
+this.categories = [];
+
+/**
  * @param {String} category
  * @method loadConfig
  */
@@ -53,20 +65,6 @@ this.getFullFileName = function(name, dev) {
 };
 
 
-// Preload the configuration
-
-this.CONFIGURATION_FOLDER = './config/';
-
-this.categories = [];
-
-this.files = fs.readdirSync(this.CONFIGURATION_FOLDER)
-
-var nDomains = this.domains.length;
-for (var i = 0; i < nDomains; i++) {
-	var currentDomain = this.domains[i];
-	this.loadConfig(currentDomain);
-}
-
 /**
  * @param {String} category
  * @param {String} property
@@ -87,3 +85,13 @@ this.get = function(category, property) {
 	return value;
 
 };
+
+// Preload the configuration
+this.files = fs.readdirSync(this.CONFIGURATION_FOLDER)
+
+var nFiles = this.files.length;
+for (var i = 0; i < nFiles; i++) {
+	var filename = this.files[i];
+	var currentCategory = filename.substr(0, filename.lastIndexOf('.'));
+	this.loadConfig(currentCategory);
+}
