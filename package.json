@@ -1,0 +1,22 @@
+{
+  "name": "node-config",
+  "version": "0.1.0",
+  "description": "Loader for configuration stored as a JSON files, supports multiple environments(dev/production).",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tomasperezv/node-config.git"
+  },
+  "keywords": [
+    "config"
+  ],
+  "author": "Tomás Pérez <tom@0x101.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomasperezv/node-config/issues"
+  },
+  "homepage": "https://github.com/tomasperezv/node-config"
+}
